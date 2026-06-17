@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --color-bg-main: #0e0b08;
+  --color-bg-secondary: #17110c;
+  --color-bg-deep: #24170f;
+  --color-gold: #b8893a;
+  --color-gold-soft: #c9a45c;
+  --color-bronze: #8a6432;
+  --color-text-warm: #f4ebdd;
+  --color-text-muted: #b8aa95;
+  --color-forest: #283a2a;
+  --color-fog: #78716c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-warm);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.panel {
+  background-color: rgba(10, 8, 6, 0.76);
+  border: 1px solid rgba(201, 164, 92, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.gold-text {
+  color: var(--color-gold-soft);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-bronze));
+  color: #fff8ec;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: box-shadow 0.35s ease, transform 0.25s ease;
+  box-shadow: 0 0 0 rgba(201, 164, 92, 0);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 28px rgba(201, 164, 92, 0.55);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 164, 92, 0.6);
+  color: var(--color-text-warm);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background-color: rgba(201, 164, 92, 0.12);
+  box-shadow: 0 0 18px rgba(201, 164, 92, 0.25);
+}
+
+.bg-fallback {
+  background: radial-gradient(circle at 50% 30%, #24170f, #0e0b08 75%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bronze);
+  border-radius: 4px;
+}

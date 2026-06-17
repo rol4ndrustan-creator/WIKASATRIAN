@@ -42,7 +42,7 @@ function App() {
             />
             <PendopoHub onNavigate={handleNavigate} />
             <PhilosophySection />
-            <RoomExplorer />
+            <RoomExplorer onConsult={() => scrollTo('consultation')} />
             <ProgramJourney onConsult={() => scrollTo('consultation')} />
             <VirtualTourSection onConsult={() => scrollTo('consultation')} />
             <WhyWikasatrian />

@@ -5,9 +5,10 @@ import SafeImage from './SafeImage';
 interface RoomExperienceModalProps {
   room: Room | null;
   onClose: () => void;
+  onConsult: () => void;
 }
 
-export default function RoomExperienceModal({ room, onClose }: RoomExperienceModalProps) {
+export default function RoomExperienceModal({ room, onClose, onConsult }: RoomExperienceModalProps) {
   return (
     <AnimatePresence>
       {room && (
@@ -15,7 +16,7 @@ export default function RoomExperienceModal({ room, onClose }: RoomExperienceMod
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/70 px-0 sm:px-5"
+          className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center bg-black/70 px-0 sm:px-5"
           onClick={onClose}
         >
           <motion.div
@@ -44,7 +45,7 @@ export default function RoomExperienceModal({ room, onClose }: RoomExperienceMod
 
             <div className="p-7">
               <h3 className="font-display text-2xl gold-text mb-3">{room.experienceTitle}</h3>
-              <p className="text-text-warm/90 leading-relaxed mb-6">{room.experienceDetails}</p>
+              <p className="text-text-warm/90 leading-relaxed mb-6">{room.experienceNarrative}</p>
 
               <h4 className="text-text-warm font-medium mb-3">Sorotan Utama</h4>
               <ul className="space-y-2 mb-6">
@@ -57,11 +58,26 @@ export default function RoomExperienceModal({ room, onClose }: RoomExperienceMod
               </ul>
 
               <h4 className="text-text-warm font-medium mb-2">Paling Sesuai Untuk</h4>
-              <p className="text-text-muted text-sm mb-7">{room.bestFor}</p>
+              <p className="text-text-muted text-sm mb-6">{room.bestFor}</p>
 
-              <button onClick={onClose} className="btn-outline-gold w-full sm:w-auto">
-                Lanjutkan Eksplorasi
-              </button>
+              <h4 className="text-text-warm font-medium mb-3">Format Aktivitas yang Disarankan</h4>
+              <ul className="space-y-2 mb-8">
+                {room.suggestedActivities.map((activity) => (
+                  <li key={activity} className="flex items-start gap-2 text-text-muted text-sm">
+                    <span className="gold-text mt-0.5">◆</span>
+                    {activity}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button onClick={onConsult} className="btn-gold w-full sm:w-auto">
+                  Konsultasikan Ruang Ini
+                </button>
+                <button onClick={onClose} className="btn-outline-gold w-full sm:w-auto">
+                  Lanjutkan Eksplorasi
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>

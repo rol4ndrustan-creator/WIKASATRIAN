@@ -85,6 +85,64 @@ body {
   box-shadow: 0 0 18px rgba(201, 164, 92, 0.25);
 }
 
+.btn-gold-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-bronze));
+  color: #fff8ec;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  transition: box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+.btn-gold-sm:hover {
+  box-shadow: 0 0 20px rgba(201, 164, 92, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 164, 92, 0.5);
+  color: var(--color-text-warm);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-outline-gold-sm:hover {
+  background-color: rgba(201, 164, 92, 0.1);
+}
+
+.cinematic-image {
+  filter: brightness(0.72) contrast(1.05) saturate(0.95);
+}
+
+.cinematic-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    rgba(5, 4, 3, 0.55) 100%
+  );
+}
+
+:focus-visible {
+  outline: 2px solid rgba(201, 164, 92, 0.8);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(201, 164, 92, 0.18);
+}
+
+
 .bg-fallback {
   background: radial-gradient(circle at 50% 30%, #24170f, #0e0b08 75%);
 }

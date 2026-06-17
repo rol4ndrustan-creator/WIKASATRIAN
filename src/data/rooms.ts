@@ -1,6 +1,12 @@
+export interface DesignPhilosophyPoint {
+  title: string;
+  description: string;
+}
+
 export interface Room {
   id: string;
   title: string;
+  shortTitle: string;
   displayTitle: string[];
   subtitle: string;
   image: string;
@@ -8,8 +14,8 @@ export interface Room {
   capacity: string;
   functions: string[];
   bestFor: string;
-  shortDescription: string;
-  designPhilosophy: string;
+  description: string;
+  designPhilosophy: DesignPhilosophyPoint[];
   experienceTitle: string;
   experienceNarrative: string;
   keyHighlights: string[];
@@ -22,7 +28,8 @@ export const rooms: Room[] = [
   {
     id: 'giri-wijaya',
     title: 'Ruang Giri Wijaya',
-    displayTitle: ['RUANG', 'GIRI WIJAYA'],
+    shortTitle: 'Giri Wijaya',
+    displayTitle: ['GIRI WIJAYA'],
     subtitle: 'Pusat Aktivitas Besar & Auditorium',
     image: `${IMG}/giri-wijaya-1.jpg`,
     alternateImage: `${IMG}/giri-wijaya-2.jpg`,
@@ -30,10 +37,26 @@ export const rooms: Room[] = [
     functions: ['Meeting', 'Training', 'Seminar', 'Workshop', 'Auditorium'],
     bestFor:
       'Seminar besar, leadership forum, townhall, workshop besar, dan auditorium session.',
-    shortDescription:
-      'Giri Wijaya adalah ruang utama untuk aktivitas berskala besar seperti seminar, pelatihan, workshop, dan kegiatan auditorium.',
-    designPhilosophy:
-      'Dirancang dengan skala ruang yang lapang dan material natural agar kegiatan formal tetap terasa hangat, dekat, dan tidak kaku.',
+    description:
+      'Giri Wijaya adalah gedung utama Wikasatrian dengan desain unik yang berfungsi sebagai pusat aktivitas besar dan auditorium. Dirancang untuk menghadirkan pengalaman belajar dan berdiskusi yang mendalam, meningkatkan fokus, kenyamanan, serta menghasilkan dampak maksimal dalam setiap kegiatan.',
+    designPhilosophy: [
+      {
+        title: 'Raga Semar',
+        description: 'Melambangkan kebijaksanaan, keterbukaan, dan kepemimpinan yang melayani.',
+      },
+      {
+        title: 'Kapal Pinisi',
+        description: 'Melambangkan keberanian, ketangguhan, dan kemampuan berlayar menuju tujuan besar.',
+      },
+      {
+        title: 'Ruang Berkembang',
+        description: 'Struktur melingkar dan terbuka menciptakan suasana belajar yang inklusif, interaktif, dan harmonis.',
+      },
+      {
+        title: 'Ketenangan & Fokus',
+        description: 'Pencahayaan alami, material kayu, dan nuansa hangat mendukung konsentrasi dan kenyamanan optimal.',
+      },
+    ],
     experienceTitle: 'Pengalaman Ruang Giri Wijaya',
     experienceNarrative:
       'Rasakan pengalaman ruang auditorium utama yang dirancang untuk menghadirkan kegiatan berskala besar secara elegan, tertata, dan tetap dekat dengan suasana alam Wikasatrian.',
@@ -52,7 +75,8 @@ export const rooms: Room[] = [
   {
     id: 'giri-sasana',
     title: 'Ruang Giri Sasana',
-    displayTitle: ['RUANG', 'GIRI SASANA'],
+    shortTitle: 'Giri Sasana',
+    displayTitle: ['GIRI SASANA'],
     subtitle: 'Pusat Pelatihan & Seminar',
     image: `${IMG}/giri-sasana-1.jpg`,
     alternateImage: `${IMG}/giri-sasana-2.jpg`,
@@ -60,10 +84,26 @@ export const rooms: Room[] = [
     functions: ['Meeting', 'Training', 'Seminar', 'Workshop'],
     bestFor:
       'Training, seminar, leadership class, workshop, dan focused group discussion.',
-    shortDescription:
-      'Giri Sasana dirancang untuk pelatihan, seminar, diskusi, dan kegiatan pembelajaran yang lebih fokus.',
-    designPhilosophy:
-      'Tata ruang yang lebih intim mendorong interaksi yang fokus, membangun kedekatan antar peserta selama proses pelatihan.',
+    description:
+      'Giri Sasana dirancang untuk pelatihan, seminar, diskusi, dan kegiatan pembelajaran yang lebih fokus. Ruang ini menghadirkan suasana yang lebih intim untuk mendorong interaksi, konsentrasi, dan kedekatan antar peserta.',
+    designPhilosophy: [
+      {
+        title: 'Interaksi Terarah',
+        description: 'Tata ruang mendukung dialog, diskusi, dan pembelajaran aktif.',
+      },
+      {
+        title: 'Fokus Pembelajaran',
+        description: 'Suasana ruang membantu peserta menjaga konsentrasi selama sesi berlangsung.',
+      },
+      {
+        title: 'Nuansa Hangat',
+        description: 'Material dan pencahayaan menciptakan pengalaman belajar yang nyaman.',
+      },
+      {
+        title: 'Fleksibilitas Kegiatan',
+        description: 'Dapat digunakan untuk seminar, workshop, pelatihan, dan sesi refleksi.',
+      },
+    ],
     experienceTitle: 'Pengalaman Ruang Giri Sasana',
     experienceNarrative:
       'Rasakan suasana pelatihan yang lebih fokus, dekat, dan reflektif dengan dukungan ruang yang fleksibel untuk berbagai format pembelajaran.',
@@ -82,17 +122,34 @@ export const rooms: Room[] = [
   {
     id: 'giri-unggul',
     title: 'Ruang Giri Unggul',
-    displayTitle: ['RUANG', 'GIRI UNGGUL'],
+    shortTitle: 'Giri Unggul',
+    displayTitle: ['GIRI UNGGUL'],
     subtitle: 'Ruang Kelas Pertemuan Multifungsi',
     image: `${IMG}/giri-unggul.jpg`,
     capacity: '±200 orang',
     functions: ['Meeting', 'Class', 'Seminar', 'Workshop', 'Remote'],
     bestFor:
       'Classroom training, workshop, product briefing, collaboration session, dan remote-enabled meeting.',
-    shortDescription:
-      'Giri Unggul adalah ruang kelas multifungsi yang cocok untuk meeting, kelas pelatihan, workshop, dan kegiatan kolaboratif.',
-    designPhilosophy:
-      'Layout fleksibel memungkinkan ruang beradaptasi dengan cepat dari format kelas ke format kolaborasi tim.',
+    description:
+      'Giri Unggul adalah ruang kelas pertemuan multifungsi yang dapat disesuaikan untuk berbagai kegiatan korporasi seperti meeting, training, seminar, dan workshop. Ruang ini mendukung pembelajaran yang rapi, produktif, dan kolaboratif.',
+    designPhilosophy: [
+      {
+        title: 'Kapasitas Hingga 200 Orang',
+        description: 'Mendukung kegiatan kelas dan pertemuan berskala menengah.',
+      },
+      {
+        title: 'Tata Ruang Fleksibel',
+        description: 'Konfigurasi dapat disesuaikan dengan format acara.',
+      },
+      {
+        title: 'Teknologi Modern',
+        description: 'Mendukung presentasi, proyeksi, dan kebutuhan pembelajaran.',
+      },
+      {
+        title: 'Akses Mudah',
+        description: 'Lokasi strategis dan nyaman untuk peserta.',
+      },
+    ],
     experienceTitle: 'Pengalaman Ruang Giri Unggul',
     experienceNarrative:
       'Rasakan pengalaman ruang kelas modern yang mendukung interaksi, produktivitas, dan pembelajaran terstruktur dalam suasana Wikasatrian yang tenang.',
@@ -111,17 +168,34 @@ export const rooms: Room[] = [
   {
     id: 'giri-budaya',
     title: 'Ruang Giri Budaya',
-    displayTitle: ['RUANG', 'GIRI BUDAYA'],
+    shortTitle: 'Giri Budaya',
+    displayTitle: ['GIRI BUDAYA'],
     subtitle: 'Kelas Diskusi & Kegiatan Seni dan Kebudayaan',
     image: `${IMG}/giri-budaya.jpg`,
     capacity: '±50–80 orang',
     functions: ['Diskusi', 'Kelas Budaya', 'Seni & Budaya', 'Workshop'],
     bestFor:
       'Cultural session, reflective discussion, value-based leadership, creative workshop, dan team reflection.',
-    shortDescription:
-      'Giri Budaya menghadirkan suasana budaya yang kuat untuk diskusi, refleksi, pembelajaran nilai, dan kegiatan seni.',
-    designPhilosophy:
-      'Elemen budaya Nusantara dihadirkan secara autentik untuk menciptakan suasana reflektif yang mendalam dan bermakna.',
+    description:
+      'Giri Budaya adalah ruang khusus yang didedikasikan untuk kelas diskusi, kegiatan seni, dan pengembangan budaya. Ruang ini menghadirkan suasana yang memperdalam refleksi, memperkaya wawasan, serta menanamkan nilai-nilai budaya bangsa.',
+    designPhilosophy: [
+      {
+        title: 'Eksplorasi Kreatif',
+        description: 'Mendorong berbagai kegiatan seni dan budaya yang produktif.',
+      },
+      {
+        title: 'Ruang Untuk Tradisi',
+        description: 'Menyediakan ruang untuk memahami simbol, nilai, dan warisan budaya.',
+      },
+      {
+        title: 'Partisipatif & Interaktif',
+        description: 'Mendorong peserta untuk berdiskusi dan terlibat aktif.',
+      },
+      {
+        title: 'Pelestarian Budaya',
+        description: 'Menghadirkan pengalaman yang dekat dengan nilai Nusantara.',
+      },
+    ],
     experienceTitle: 'Pengalaman Ruang Giri Budaya',
     experienceNarrative:
       'Rasakan pengalaman belajar yang lebih dalam melalui suasana budaya, seni, dan refleksi yang membantu peserta memahami nilai dan makna kepemimpinan.',
@@ -140,17 +214,34 @@ export const rooms: Room[] = [
   {
     id: 'outdoor',
     title: 'Area Outdoor',
-    displayTitle: ['AREA', 'OUTDOOR'],
+    shortTitle: 'Outdoor',
+    displayTitle: ['OUTDOOR'],
     subtitle: 'Perkemahan & Wana Arena',
     image: `${IMG}/area-outdoor.jpg`,
     capacity: '±50–80 orang',
     functions: ['Perkemahan', 'Team Building', 'Outbound', 'Gathering', 'Leadership Camp'],
     bestFor:
       'Leadership camp, team building, outbound, gathering, campfire session, dan nature-based learning.',
-    shortDescription:
-      'Area Outdoor memberikan pengalaman pembelajaran di alam terbuka melalui aktivitas team building, leadership camp, dan gathering.',
-    designPhilosophy:
-      'Kedekatan dengan alam dirancang untuk membuka ruang refleksi dan tantangan fisik yang membangun kebersamaan tim.',
+    description:
+      'Area Outdoor merupakan kawasan pembelajaran di alam terbuka yang dirancang untuk menghadirkan pengalaman belajar yang lebih dekat dengan alam. Area ini cocok untuk team building, leadership camp, outbound, gathering, dan aktivitas reflektif.',
+    designPhilosophy: [
+      {
+        title: 'Menyatu dengan Alam Terbuka',
+        description: 'Menghadirkan suasana sejuk, asri, dan reflektif.',
+      },
+      {
+        title: 'Wana Arena',
+        description: 'Area terbuka untuk kegiatan outdoor dan tantangan kelompok.',
+      },
+      {
+        title: 'Campfire Experience',
+        description: 'Mendukung sesi malam, kebersamaan, dan refleksi.',
+      },
+      {
+        title: 'Sahabat Semesta',
+        description: 'Membantu peserta memahami kepemimpinan melalui pengalaman langsung.',
+      },
+    ],
     experienceTitle: 'Pengalaman Area Outdoor',
     experienceNarrative:
       'Rasakan pembelajaran di alam terbuka yang menggabungkan tantangan, kebersamaan, refleksi, dan pengalaman langsung untuk membangun kepemimpinan.',
@@ -169,6 +260,7 @@ export const rooms: Room[] = [
   {
     id: 'kebugaran-relaksasi',
     title: 'Ruang Kebugaran & Relaksasi',
+    shortTitle: 'Kebugaran',
     displayTitle: ['KEBUGARAN', '& RELAKSASI'],
     subtitle: 'Sehat, Bugar, Produktif',
     image: `${IMG}/ruang-kebugaran.jpg`,
@@ -176,10 +268,26 @@ export const rooms: Room[] = [
     functions: ['Fitness', 'Pool', 'Relaxation', 'Recovery'],
     bestFor:
       'Wellness session, post-training recovery, informal bonding, relaxation, dan participant refreshment.',
-    shortDescription:
-      'Ruang Kebugaran & Relaksasi mendukung keseimbangan fisik dan mental peserta selama mengikuti program.',
-    designPhilosophy:
-      'Fasilitas ini melengkapi perjalanan belajar dengan ruang untuk memulihkan energi fisik dan mental peserta.',
+    description:
+      'Ruang Kebugaran & Relaksasi dirancang untuk mendukung gaya hidup sehat dan seimbang. Fasilitas ini membantu peserta menjaga energi, relaksasi, dan kebugaran selama mengikuti rangkaian program.',
+    designPhilosophy: [
+      {
+        title: 'Peralatan Lengkap & Modern',
+        description: 'Mendukung kebutuhan olahraga dan kebugaran.',
+      },
+      {
+        title: 'Relaksasi & Pemulihan',
+        description: 'Membantu peserta memulihkan energi.',
+      },
+      {
+        title: 'Kolam Renang',
+        description: 'Fasilitas pendukung untuk relaksasi dan keseimbangan.',
+      },
+      {
+        title: 'Kesehatan & Produktivitas',
+        description: 'Menjaga kondisi fisik dan mental selama program.',
+      },
+    ],
     experienceTitle: 'Pengalaman Kebugaran & Relaksasi',
     experienceNarrative:
       'Rasakan fasilitas pendukung yang membantu peserta menjaga energi, relaksasi, dan keseimbangan selama mengikuti rangkaian program.',
